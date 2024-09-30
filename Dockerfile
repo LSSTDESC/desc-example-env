@@ -43,6 +43,7 @@ RUN cd /tmp  \
     && mamba env update --name base --file conda-pack.yml \
     && conda remove --force mpi4py \
     && pip install --no-binary=mpi4py --no-cache-dir mpi4py \
+    && pip install chainconsumer \
     && pip install --no-cache-dir "jax==0.4.23" "jaxlib[cuda12_cudnn89]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
     && mamba clean --all -y \
     && pip cache purge
