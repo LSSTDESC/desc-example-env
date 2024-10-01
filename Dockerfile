@@ -41,13 +41,13 @@ RUN cd /tmp  \
     && . /opt/conda/etc/profile.d/conda.sh && conda activate base \
     && mamba install -c conda-forge -y mpich=4.2.2.*=external_* \
     && mamba env update --name base --file conda-pack.yml \
-    && conda remove --force mpi4py \
-    && pip install --no-binary=mpi4py --no-cache-dir mpi4py \
     && pip install chainconsumer \
     && pip install --no-cache-dir "jax==0.4.23" "jaxlib[cuda12_cudnn89]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
     && mamba clean --all -y \
     && pip cache purge
     
+    #&& conda remove --force mpi4py \
+    #&& pip install --no-binary=mpi4py --no-cache-dir mpi4py \
 #&& CONDA_OVERRIDE_CUDA="11.8" mamba install -y "tensorflow==2.14.0=cuda118*" -c conda-forge \
     #&& mamba install -y  pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia \
     #&& mamba install -c conda-forge -y --file ./conda/condalist_gpu.txt \
